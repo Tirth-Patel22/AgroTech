@@ -1,0 +1,12 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+backend/market/*.csv filter=lfs diff=lfs merge=lfs -text
+frontend/public/*.jpg filter=lfs diff=lfs merge=lfs -text
+frontend/public/*.mp4 filter=lfs diff=lfs merge=lfs -text
+frontend/public/*.svg filter=lfs diff=lfs merge=lfs -text
+frontend/public/*.csv filter=lfs diff=lfs merge=lfs -text
+backend/dist/v1.mp4 filter=lfs diff=lfs merge=lfs -text
+Agro Tech.pptx
+backend/data/*.csv filter=lfs diff=lfs merge=lfs -text
+backend/models/*.h5 filter=lfs diff=lfs merge=lfs -text
+frontend/public/media/*.mp4 filter=lfs diff=lfs merge=lfs -text
+backend/dist/v2.mp4 filter=lfs diff=lfs merge=lfs -text

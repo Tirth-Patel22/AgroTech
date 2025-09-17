@@ -1,0 +1,199 @@
+/* Global Styles */
+.crop-container {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-image: url('../public/crop.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  z-index: 2;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 5px;
+}
+
+.search-input-crop {
+  padding: 14px 20px;
+  width: 320px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.crop_name{
+  color:black !important;
+}
+.search-input-crop:focus {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Scroll Down Button */
+.scroll-down-btn {
+  margin-top: 25px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-down-btn:hover {
+  background: #fff;
+  color: #333;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.results-section {
+  padding: 60px 40px;
+  padding-top: 100px;
+  min-height: 600px;
+  background-image: url('../public/crop_result2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  scroll-margin-top: 80px; /* ← this ensures top spacing when scrolled into view */
+}
+
+.crop-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Crop Card Styles */
+.crop-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 16px;
+  width: 700px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.crop-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image and Details Columns */
+.image-column {
+  flex: 1;
+}
+
+.details-column {
+  flex: 2;
+  text-align: left;
+}
+
+.crop-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.crop-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Text and List Styles */
+.crop-card p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.crop-card ul {
+  margin: 8px 0;
+  padding-left: 18px;
+}
+
+.crop-card ul li {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+/* Loading and No Results Text */
+.loading, .no-results {
+  font-size: 24px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #2d3436, #000000);
+  margin-top: 20px;
+}
+
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .crop-card {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .crop-image {
+    height: 200px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .search-input-crop
+   {
+    width: 250px;
+  }
+
+  .scroll-down-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}

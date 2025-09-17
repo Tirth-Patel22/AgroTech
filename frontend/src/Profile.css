@@ -1,0 +1,54 @@
+/* Profile.css */
+
+/* Smooth card animation */
+.profile-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Profile heading underline */
+.profile-heading {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.profile-heading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4); /* blue → cyan */
+  border-radius: 2px;
+}
+
+/* Profile info styling */
+.profile-info div {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.profile-info div:hover {
+  background-color: #f9fafb; /* Tailwind gray-50 */
+}
+
+/* Error + Loading states */
+.loading-text {
+  text-align: center;
+  color: #6b7280; /* gray-500 */
+  font-style: italic;
+}
+
+.error-text {
+  text-align: center;
+  color: #dc2626; /* red-600 */
+  font-weight: 500;
+}

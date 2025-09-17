@@ -1,0 +1,612 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.predict-price-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Titles */
+.predict-price-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  position: relative;
+  animation: slideInDown 0.6s ease-out;
+}
+
+.predict-price-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+  animation: expandWidth 0.8s ease-out 0.3s both;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+/* CSV Table Container */
+.csv-table-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 3rem;
+  animation: slideInUp 0.6s ease-out 0.2s both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.csv-table-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Table Styles */
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+
+.csv-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: table-header-group;
+}
+
+.csv-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: table-cell;
+}
+
+.csv-table th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scaleX(0);
+  animation: scaleX 0.6s ease-out 0.5s both;
+}
+
+@keyframes scaleX {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.csv-table tbody {
+  display: table-row-group;
+}
+
+.csv-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+  display: table-cell;
+}
+
+.csv-table tr {
+  display: table-row;
+  transition: all 0.3s ease;
+}
+
+.csv-table tr:hover {
+  background-color: #f8f9ff;
+  transform: scale(1.01);
+}
+
+.csv-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Buttons */
+.view-more-button, .predict-price-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  margin: 1rem 0.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.view-more-button::before, .predict-price-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.view-more-button:hover::before, .predict-price-button:hover::before {
+  left: 100%;
+}
+
+.view-more-button:hover, .predict-price-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.predict-price-button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.predict-price-button:disabled::before {
+  display: none;
+}
+
+/* Form Styles */
+.predict-price-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  animation: slideInUp 0.6s ease-out 0.4s both;
+  transition: transform 0.3s ease;
+}
+
+.predict-price-form:hover {
+  transform: translateY(-3px);
+}
+
+.predict-price-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 1.5rem 0 0.5rem 0;
+  position: relative;
+}
+
+.predict-price-label::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  border-radius: 2px;
+  opacity: 0;
+  animation: slideInLeft 0.5s ease-out 0.6s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.predict-price-select, .predict-price-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  margin-bottom: 1rem;
+}
+
+.predict-price-select:focus, .predict-price-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.predict-price-select option {
+  padding: 0.5rem;
+}
+
+/* Loading and Error States */
+.predict-price-loading {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #667eea;
+  margin: 1rem 0;
+  position: relative;
+  animation: pulse 1.5s infinite;
+}
+
+.predict-price-loading::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #667eea;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.predict-price-error {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 500;
+  animation: shake 0.5s ease-in-out;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Results */
+.predict-price-result {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+  animation: bounceIn 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.predict-price-result::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.9) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.predict-price-result-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.predict-price-result-value {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: countUp 1s ease-out 0.3s both;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.predict-price-result-date {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .predict-price-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .predict-price-title {
+    font-size: 2.2rem;
+  }
+  
+  .csv-table {
+    font-size: 0.8rem;
+  }
+  
+  .csv-table th, .csv-table td {
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .predict-price-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .predict-price-title {
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .predict-price-title::after {
+    width: 60px;
+  }
+  
+  .csv-table-container {
+    margin-bottom: 2rem;
+    overflow-x: auto;
+  }
+  
+  .csv-table {
+    display: table;
+    white-space: nowrap;
+    min-width: 600px;
+  }
+  
+  .csv-table th, .csv-table td {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .predict-price-form {
+    padding: 1.5rem;
+  }
+  
+  .predict-price-label {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  .predict-price-select, .predict-price-input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .view-more-button, .predict-price-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    margin: 0.5rem 0.25rem;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .predict-price-result-value {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .predict-price-container {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .predict-price-title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .csv-table-container {
+    border-radius: 10px;
+  }
+  
+  .predict-price-form {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .predict-price-result {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .predict-price-result-value {
+    font-size: 2rem;
+  }
+  
+  .view-more-button, .predict-price-button {
+    width: 100%;
+    max-width: none;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .predict-price-container {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #ecf0f1;
+  }
+  
+  .predict-price-title {
+    color: #ecf0f1;
+  }
+  
+  .csv-table-container, .predict-price-form {
+    background: #34495e;
+    color: #ecf0f1;
+  }
+  
+  .csv-table tr:hover {
+    background-color: #3a4a5c;
+  }
+  
+  .csv-table tr:nth-child(even) {
+    background-color: #2f3f4f;
+  }
+  
+  .predict-price-select, .predict-price-input {
+    background: #2f3f4f;
+    border-color: #4a5f7a;
+    color: #ecf0f1;
+  }
+  
+  .predict-price-select:focus, .predict-price-input:focus {
+    background: #34495e;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .predict-price-container {
+    background: white;
+    box-shadow: none;
+  }
+  
+  .view-more-button, .predict-price-button {
+    display: none;
+  }
+  
+  .predict-price-form {
+    display: none;
+  }
+}
+
+.inner-100{
+  font-size: 15px;
+}

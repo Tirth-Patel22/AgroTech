@@ -1,0 +1,165 @@
+.navbar {
+  display: flex;
+  height:60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  background: #fff;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  /* animation: home-fadeIn 1s ease; */
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #388e3c;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #f1f8e9;
+  color: #388e3c;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 2px solid #388e3c;
+  padding: 6px 14px;
+  color: #388e3c;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #388e3c;
+  color: #fff;
+}
+
+/* Mobile Toggle Icon */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: #388e3c;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: home-fadeInUp 0.4s ease forwards;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+  }
+}
+
+/* ============ account dropdown ============ */
+.nav-links .account {
+  position: relative;
+  list-style: none;
+}
+
+.account-icon {
+  cursor: pointer;
+  font-size: 1.6rem;          /* adjust icon size */
+  display: flex;
+  align-items: center;
+  padding: 6px;               /* hit area */
+}
+
+.account .dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  min-width: 180px;
+  overflow: hidden;
+  display: none;              /* hidden by default */
+  z-index: 999;
+}
+
+.account.open .dropdown {      /* show on .open */
+  display: block;
+}
+
+/* dropdown items */
+.account .dropdown li {
+  padding: 10px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.account .dropdown li:hover {
+  background: #f5f5f5;
+}
+
+/* ---------- responsive tweaks ---------- */
+/* If you already have mobile styles that stack .nav-links vertically,
+   the dropdown will inherit that flow. To keep it as an overlay on mobile,
+   add this rule in the same media query where you handle mobile menu: */
+@media (max-width: 768px) {
+  .account .dropdown {
+    position: static;     /* makes it flow in the column */
+    box-shadow: none;
+    border-radius: 0;
+  }
+}

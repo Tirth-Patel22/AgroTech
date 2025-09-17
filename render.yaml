@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: agrotech
+    env: python
+    plan: free
+    buildCommand: |
+      # Install Python dependencies
+      pip install -r requirements.txt
+
+      # Build React frontend
+      cd frontend
+      npm install
+      npm run build
+      cd ..
+
+      # Collect Django static files and migrate DB
+      python manage.py collectstatic --noinput
+      python manage.py migrate
+    startCommand: gunicorn backend.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+      - key: PYTHON_VERSION
+        value: 3.10
+      - key: NODE_VERSION
+        value: 18

@@ -1,0 +1,67 @@
+/* Admin Dashboard Page */
+
+.page-content {
+  padding: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-content h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+/* Button Group Styling */
+.dashboard-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+/* Dashboard Buttons */
+.dashboard-btn {
+  background: #f1f3f5;
+  color: #333;
+  padding: 12px 20px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-btn:hover {
+  background: #e9ecef;
+  color: #000;
+  border-color: #adb5bd;
+}
+
+.dashboard-btn:active {
+  background: #dee2e6;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Logout Button */
+.logout-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 24px;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  transform: translateY(-1px);
+}
+
+.logout-btn:active {
+  background: #922b21;
+}

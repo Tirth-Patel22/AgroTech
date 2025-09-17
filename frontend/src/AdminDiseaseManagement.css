@@ -1,0 +1,110 @@
+.page-content {
+  padding: 30px;
+  max-height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 230px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  margin: 5px 5px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:focus {
+  outline: none;
+}
+
+.create-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.update-btn {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.message.success {
+  background-color: #e6ffed;
+  color: #2f855a;
+  border-left: 5px solid #38a169;
+  text-shadow: none;
+}
+
+.message.error {
+  background-color: #fcebea;
+  color: #c53030;
+  border-left: 5px solid #e53e3e;
+  text-shadow: none;
+}

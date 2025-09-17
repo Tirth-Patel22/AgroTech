@@ -1,0 +1,107 @@
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #008080;
+  padding: 12px 24px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.page-content{
+  padding-top: 70px;
+}
+.admin-navbar-brand {
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Desktop Nav Buttons */
+.admin-navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar-links button {
+  margin-left: 15px;
+  padding: 8px 16px;
+  background-color: #006666;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.admin-navbar-links button:hover {
+  background-color: #004c4c;
+}
+
+.logout-btn {
+  background-color: #cc3333;
+}
+
+.logout-btn:hover {
+  background-color: #a82626;
+}
+
+/* Hamburger icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background-color: #fff;
+  margin: 4px 0;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* Toggle open effect */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .admin-navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #008080;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    padding: 10px;
+    display: none;
+  }
+
+  .admin-navbar-links.open {
+    display: flex;
+  }
+
+  .admin-navbar-links button {
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+  }
+}

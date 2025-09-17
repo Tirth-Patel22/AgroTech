@@ -1,0 +1,573 @@
+/* Pesticide Component Styles - Responsive with Animations */
+
+:root {
+  --primary-color: #2c5530;
+  --secondary-color: #4a7c59;
+  --accent-color: #7fb069;
+  --background-color: #f8fffe;
+  --card-background: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --border-color: #e2e8f0;
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container Styles */
+.pesticide-container {
+  background-image: url('../public/pesticide.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Header Section */
+.pesticide-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: slideInDown 0.6s ease-out;
+}
+
+/* Title Styles */
+.pesticide-header h2 {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 10%;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+  position: relative;
+}
+
+.pesticide-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  border-radius: 2px;
+  animation: scaleInX 0.8s ease-out 0.3s both;
+}
+
+/* Search Wrapper */
+.pesticide-search-bar-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Search Input */
+.search-input-pesticide {
+  padding: 14px 20px;
+  width: 350px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.search-input-pesticide:focus {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 1);
+}
+
+.search-input-pesticide::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Pesticide List Grid - FIXED FOR SINGLE CARD */
+.pesticide-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+  justify-items: center; /* Center items when fewer than full row */
+}
+
+/* Alternative approach - limit max width for single cards */
+.pesticide-list:has(.pesticide-card:only-child) {
+  max-width: 450px; /* Limit width when only one card */
+}
+
+/* Fallback for browsers that don't support :has() */
+.pesticide-list.single-card {
+  max-width: 450px;
+  justify-content: center;
+}
+
+/* Pesticide Card - FIXED WIDTH CONSTRAINTS */
+.pesticide-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #1a202c;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  position: relative;
+  animation: cardSlideIn 0.6s ease-out both;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  width: 100%;
+  max-width: 400px; /* Prevent cards from getting too wide */
+  min-width: 350px; /* Maintain minimum readable width */
+}
+
+.pesticide-card:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+.pesticide-card:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.pesticide-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+  z-index: 1;
+}
+
+.pesticide-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(0, 0, 0, 0.02) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pesticide-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.2),
+    0 10px 25px rgba(0, 0, 0, 0.12),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 255, 0.95));
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.pesticide-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Pesticide Card Title */
+.pesticide-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 1rem;
+  padding: 0 0 0.8rem;
+  text-align: center;
+  border-bottom: 2px solid #e2e8f0;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.pesticide-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+  transition: width 0.4s ease;
+}
+
+.pesticide-card:hover h3::after {
+  width: 100%;
+}
+
+.pesticide-card:hover h3 {
+  color: #1a202c;
+}
+
+/* Pesticide Card Text */
+.pesticide-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.8rem 0;
+  color: #4a5568;
+  position: relative;
+  padding-left: 0.8rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.pesticide-card p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 3px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease 0.1s;
+}
+
+.pesticide-card:hover p::before {
+  transform: scale(1);
+}
+
+.pesticide-card p:last-child {
+  margin-bottom: 0;
+}
+
+.pesticide-card p strong {
+  color: #1a202c;
+  font-weight: 700;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* Messages */
+.pesticide-message {
+  text-align: center;
+  padding: 20px 30px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  animation: fadeInMsg 0.6s ease-in-out;
+  margin: 40px auto;
+  max-width: 500px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading Animation for Message */
+.pesticide-message:contains("Loading") {
+  background: linear-gradient(90deg, rgba(44, 85, 48, 0.9), rgba(74, 124, 89, 0.9));
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pesticide-message:contains("Loading")::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInMsg {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleInX {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Responsive Design */
+
+/* Large Tablets and Small Desktops */
+@media (max-width: 1024px) {
+  .pesticide-container {
+    padding: 40px 15px;
+  }
+  
+  .pesticide-list {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+  
+  .pesticide-card {
+    min-width: 320px;
+    max-width: 380px;
+  }
+  
+  .pesticide-header h2 {
+    font-size: 2.5rem;
+  }
+  
+  .search-input-pesticide {
+    width: 320px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .pesticide-container {
+    padding: 30px 10px;
+  }
+  
+  .pesticide-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .pesticide-search-bar-wrapper {
+    margin-bottom: 40px;
+  }
+  
+  .search-input-pesticide {
+    width: 300px;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+  
+  .pesticide-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .pesticide-card {
+    padding: 1.25rem;
+    min-width: auto;
+    max-width: 100%;
+  }
+  
+  .pesticide-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .pesticide-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .pesticide-container {
+    padding: 20px 8px;
+  }
+  
+  .pesticide-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    margin-top: 5%;
+  }
+  
+  .pesticide-search-bar-wrapper {
+    margin-bottom: 30px;
+  }
+  
+  .search-input-pesticide {
+    width: 280px;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  
+  .pesticide-list {
+    gap: 15px;
+  }
+  
+  .pesticide-card {
+    padding: 1rem;
+    margin: 0 5px;
+    min-width: auto;
+    max-width: 100%;
+  }
+  
+  .pesticide-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .pesticide-card p {
+    font-size: 0.85rem;
+    margin: 0.6rem 0;
+  }
+  
+  .pesticide-message {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    margin: 30px 10px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 320px) {
+  .pesticide-container {
+    padding: 15px 5px;
+  }
+  
+  .pesticide-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .search-input-pesticide {
+    width: 240px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  
+  .pesticide-card {
+    padding: 0.8rem;
+    min-width: auto;
+    max-width: 100%;
+  }
+  
+  .pesticide-card h3 {
+    font-size: 1rem;
+  }
+  
+  .pesticide-card p {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .pesticide-card:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --accent-color: #0066cc;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-color: #666666;
+  }
+  
+  .pesticide-card {
+    border-width: 2px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #68d391;
+    --secondary-color: #9ae6b4;
+    --accent-color: #c6f6d5;
+    --background-color: #1a202c;
+    --card-background: #2d3748;
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --border-color: #4a5568;
+  }
+  
+  .pesticide-container {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
+}

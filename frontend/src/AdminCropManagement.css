@@ -1,0 +1,231 @@
+/* AdminCropManagement.css */
+.page-content {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-content h2{
+  margin-top: 12px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #2e7d32;
+}
+
+h3 {
+  margin-top: 30px;
+  font-size: 26px;
+  color: #3a3a3a;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #2b6777;
+  color: #ffffff;
+}
+
+thead th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:hover {
+  background-color: #f3f9fa;
+}
+
+td {
+  padding: 12px 16px;
+}
+
+.table-action-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 6px;
+  transition: all 0.3s ease;
+}
+
+.table-action-btn.edit {
+  background-color: #3498db;
+}
+
+.table-action-btn.edit:hover {
+  background-color: #2980b9;
+}
+
+.table-action-btn.delete {
+  background-color: #e74c3c;
+}
+
+.table-action-btn.delete:hover {
+  background-color: #c0392b;
+}
+
+
+button {
+  background-color: #388e3c;
+  color: #fff;
+  border: none;
+  padding: 9px 16px;
+  margin: 4px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+button:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.25s ease;
+  background-color: #fff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+textarea {
+  height: 90px;
+  resize: vertical;
+}
+
+.status-message {
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.status-message.success {
+  color: #43a047;
+}
+
+.status-message.error {
+  color: #e53935;
+}
+
+.status-message.delete {
+  color: #fb8c00;
+}
+
+form button {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  table th,
+  table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  button {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .page-content {
+    padding: 20px 12px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    font-size: 12px;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+  }
+
+  button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 120px;
+}
+
+@media (max-width: 480px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group button {
+    width: 100%;
+  }
+}
